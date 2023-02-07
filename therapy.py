@@ -7,7 +7,7 @@ import pygame
 import zmq
 import zmq.asyncio
 
-FPS = 30
+FPS = 60
 
 class Patient:
     def __init__(self):
@@ -185,8 +185,8 @@ async def main(frontend, backend, patient, topic):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("-f", "--frontend", default="tcp://127.0.0.1:5559")
-    parser.add_argument("-b", "--backend", default="tcp://127.0.0.1:5560")
+    parser.add_argument("-f", "--frontend", default="tcp://192.168.1.56:5559")
+    parser.add_argument("-b", "--backend", default="tcp://192.168.1.56:5560")
     parser.add_argument("-p", "--patient", required=True, type=str)
     parser.add_argument("-t", "--topic", default="Therapy")
     args = parser.parse_args()
