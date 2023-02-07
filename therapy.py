@@ -32,6 +32,8 @@ async def handle_events(name, patients, sub):
         if name == patient:
             continue
 
+        print(f"sub recv: {msg}")
+
         if not patients.get(patient):
             patients[patient] = Patient()
 
@@ -43,6 +45,7 @@ async def handle_events(name, patients, sub):
                 patients[patient].mouse_track[-1].append((w_x, w_y))
         elif event == "MouseButtonDown":
             patients[patient].down = True
+            patients[patient].mouse_track.append([])
         elif event == "MouseButtonUp":
             patients[patient].down = False
         elif event == "OriginX":
